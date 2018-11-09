@@ -125,7 +125,7 @@ for(let pixel of rob.values()) {
 print(rob);
 
 // **************** 11 *********************
-//  find and fix the bug (yellow has to be red)
+//  gfind and fix the bug (yellow has to be red)
 var imgM = new SimpleImage(200,200);
 for (var px of imgM.values()){
 var x = px.getX();
@@ -142,3 +142,33 @@ if (y<=imgM.getHeight()/2 && x >= imgM.getWidth()/2) {
 }
 }
 print (imgM);
+
+// **************** 12 *********************
+//  add a black border to an image
+let panda = new SimpleImage('smallpanda.png');
+print (panda);
+
+function setBlack(p) {
+  p.setRed(0);
+  p.setGreen(0);
+  p.setBlue(0);
+  return p;
+}
+
+function addBorder(i, border ) {
+  let iW = i.getWidth();
+  let iH = i.getHeight();
+  
+  for (var px of i.values()){
+      let x = px.getX();
+      let y = px.getY();
+  
+      if(x<= border || y <= border || x>=(iW-border) || y>=(iH-border) ) {
+          i.setPixel(x, y, setBlack(px));
+      }
+  }
+  return i;
+}
+
+let pandaBorder = addBorder(panda, 15)
+print (pandaBorder);
