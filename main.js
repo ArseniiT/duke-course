@@ -38,7 +38,7 @@ for(let pixel of img2.values()) {
 print(img2);
 
 // **************** 5 *********************
-// original image of castle
+// original image of chapel
 let img = new SimpleImage('chapel.png');
 print(img);
 
@@ -50,12 +50,12 @@ imgSize(img);
 // **************** 6 *********************
 
 for(let pixel of img.values()) {
-// changing all the colors of the castle
+// changing all the colors of the chapel
     pixel.setRed(pixel.getGreen());
     pixel.setGreen(pixel.getBlue());
     pixel.setBlue(pixel.getRed());
 
-// changing sky blue beside of the castle    
+// changing sky blue beside of the chapel    
     /*if(pixel.getBlue()>160 &&(pixel.getGreen()<250) && (pixel.getRed()<200)){
         pixel.setBlue(0);
         pixel.setGreen(0);
@@ -92,3 +92,19 @@ for(let pixel of photo.values()) {
     swapRedGreen(pixel);
 }
 print(photo);
+
+// **************** 9 *********************
+// change the Duke blue devil to be yellow
+let dukeDevil = new SimpleImage('duke_blue_devil.png');
+print(dukeDevil);
+
+for(let pixel of dukeDevil.values()) {
+    // all except white color
+    if(pixel.getBlue() !=255 && pixel.getRed() !=255 && pixel.getGreen() !=255){
+        pixel.setRed(255);
+        pixel.setGreen(255);
+        pixel.setBlue(0);
+    }
+}
+print(dukeDevil);
+
