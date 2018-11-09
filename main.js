@@ -108,3 +108,18 @@ for(let pixel of dukeDevil.values()) {
 }
 print(dukeDevil);
 
+// **************** 10 *********************
+//  green screen algorithm
+let rob = new SimpleImage('drewRobert.png');
+let dino = new SimpleImage('dinos.png');
+
+print(rob);
+for(let pixel of rob.values()) {
+  //if green is more common than red and blue together
+    if(pixel.getGreen() > (pixel.getRed() + pixel.getBlue())){
+        let x = pixel.getX();
+        let y = pixel.getY();
+        pixel.setAllFrom(dino.getPixel(x,y));
+    } 
+}
+print(rob);
