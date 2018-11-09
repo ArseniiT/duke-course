@@ -64,3 +64,19 @@ for(let pixel of img.values()) {
 }
 print(img);
 
+// **************** 7 *********************
+//  putting three vertical stripes
+let photo = new SimpleImage('hilton.jpg');
+let photoW = photo.getWidth();
+print(photo);
+for(let pixel of photo.values()) {
+    if(pixel.getX()<photoW/3){
+        pixel.setRed(255);
+    } else if(pixel.getX()>photoW/3 && pixel.getX()>(photoW*2/3) ) {
+        pixel.setBlue(255);
+    } else {
+        pixel.setGreen(255);
+    }
+}
+print(photo);
+
