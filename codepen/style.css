@@ -1,0 +1,55 @@
+p {
+  font-size:1.5em;
+}
+ul li ul li{
+  color: blue;
+}
+ul { color: red;}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+.footer {
+  text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+#interest {
+  color: orange;
+}
+#images {
+  color: gold;
+}
+#yellow-txt {
+  height: 30px;
+  width: 150px;
+  background-color: yellow;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border-style: solid;
+  border-width: 2px 5px 5px 2px;
+}
+#yellow-txt:hover {
+  border-width: 1px 4px 4px 1px;
+  cursor: pointer;
+  
+}
+#blue-txt {
+  height: 30px;
+  width: 150px;
+  
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 110%;
+  padding:5px;
+  margin-top: 5px;
+}
+
+.changed {
+  background-color: orange;
+}
+
