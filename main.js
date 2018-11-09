@@ -80,3 +80,15 @@ for(let pixel of photo.values()) {
 }
 print(photo);
 
+// **************** 8 *********************
+//  swap the red and green values of the pixel
+function swapRedGreen(pixel) {
+    let tmp = pixel.getRed();
+    pixel.setRed(pixel.getGreen());
+    pixel.setGreen(tmp);
+}
+
+for(let pixel of photo.values()) {
+    swapRedGreen(pixel);
+}
+print(photo);
