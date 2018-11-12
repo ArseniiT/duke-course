@@ -3,3 +3,11 @@
   height: 150px;
   border-style: solid;
 }
+
+.btn {
+  height: 30px;
+  margin: 5px;
+  background-color: aqua;
+  text-align: center;
+  border-radius: 5px;
+}

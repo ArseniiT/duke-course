@@ -1,14 +1,30 @@
-function upload() {
-  
-  //let fileName = fileInput.files[0];
-  let canvas = document.querySelector('#canvas');
-  let fileInput = document.getElementById('finput');
-  //let context = canvas.getContext('2d');
-  let image = new SimpleImage(fileInput);
+let image;
+let canvas;
 
-  image.drawTo(canvas);
+window.addEventListener('load', ()=> {
+  canvas = document.getElementById('canvas');
   
+});
+
+function upload() {
+  let fileInput = document.getElementById('finput');
+  image = new SimpleImage(fileInput);
+  image.drawTo(canvas);
 }
+
+function makeGrayscale() {
+  for(let pixel of image.values()) {
+    let avg = (pixel.getRed() + pixel.getGreen() + pixel.getBlue()) / 3;
+    pixel.setRed(avg);
+    pixel.setGreen(avg);
+    pixel.setBlue(avg);
+  }
+  image.drawTo(canvas);
+}
+
+
+
+
 
 /* window.addEventListener('load', ()=> {
   var ctx = document.getElementById('canvas').getContext('2d');
