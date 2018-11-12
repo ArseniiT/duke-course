@@ -1,0 +1,12 @@
+* {margin: 0; padding: 0;}
+
+.container {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.canvases {
+  height: 150px;
+  width: 45%;
+  border-style: solid;
+}

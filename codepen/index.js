@@ -7,3 +7,12 @@ function doChange() {
 function divClick() {
   alert("It's not a button");
 }
+
+function canv() {
+  let canvas = document.getElementById('canvas');
+  let context = canvas.getContext('2d');
+  context.fillStyle = 'yellow';
+  context.fillRect(10,10,40,40);
+  
+  
+}
