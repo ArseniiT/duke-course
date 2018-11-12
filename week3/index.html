@@ -7,14 +7,16 @@
   <link rel="stylesheet" href="style.css">
   <script src="SimpleImage.js"></script>
   <script src="main.js"></script>
+  <script src="test.js"></script>
   <title>Document</title>
 </head>
 <body>
 
   <div class="container">
     <div class="canvas-block">
-    <canvas id="canvas1" class="canvas"></canvas>
+      <canvas id="canvas1" class="canvas"></canvas>
       <canvas id="canvas2"class="canvas"></canvas>
+      <canvas id="canvas3"class="canvas"></canvas>
     </div>
     <div class="files">
       <div class="fground">
@@ -37,7 +39,7 @@
       </div>
     </div>
     <div class="commands">
-      <button>Create Composite</button>
+      <button onclick="greenScreen()">Create Composite</button>
       <button>Clear Canvases</button>
     </div>
   </div>

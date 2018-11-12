@@ -1,12 +1,15 @@
 * {margin: 0; padding: 0;}
+body {
+  background-color: azure;
+}
 
 .container {
   margin: 0 auto;
-  width: 70%;
+  width: 80%;
 }
 
 .canvas {
   height: 150px;
-  width: 45%;
+  width: 32%;
   border-style: solid;
 }
