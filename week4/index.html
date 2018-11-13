@@ -14,12 +14,11 @@
   <div class="container">
     <div class="canvas-block">
       <canvas id="canvas1" class="canvas"></canvas>
-      <canvas id="canvas2"class="canvas"></canvas>
-      <canvas id="canvas3"class="canvas"></canvas>
     </div>
     <div class="files">
+        <h3>Load image</h3>
+
       <div class="fground">
-        <p>Foreground:</p>
         <input type="file" 
           multiple="false" 
           accept="image/*" 
@@ -27,19 +26,14 @@
           name="file-foreground" 
           onchange="loadForegroundImage()">
       </div>
-      <div class="bground">
-        <p>Background:</p>
-        <input type="file" 
-          multiple="false" 
-          accept="image/*" 
-          id="bgfile" 
-          name="file-background" 
-          onchange="loadBackgroundImage()" >
-      </div>
     </div>
     <div class="commands">
-      <button onclick="greenScreen()">Create Composite</button>
-      <button>Clear Canvases</button>
+      <h2>Filters</h2>
+      <button onclick="makeGrey()">Greyscale</button>
+      <button onclick="makeRed()">Red</button>
+      <div class="reset">
+        <button onclick="reset()">Reset image</button>
+      </div>
     </div>
   </div>
   
