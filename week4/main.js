@@ -1,6 +1,6 @@
 let canvas1;
 let originalImg = null;
-let greenThreshold = 200;
+let tmpImg = null;
 
 window.addEventListener('load', ()=>{
   canvas1 = document.querySelector('#canvas1');
@@ -9,11 +9,12 @@ window.addEventListener('load', ()=>{
 function loadForegroundImage() {
   let imgFile = document.getElementById('fgfile');
   originalImg = new SimpleImage(imgFile);
+  tmpImg = new SimpleImage(imgFile);
   originalImg.drawTo(canvas1);
 }
 
-function reset() {
-  originalImg.drawTo(canvas1);
+function resetImg() {
+  loadForegroundImage();
 }
 
 function makeGrey() {
