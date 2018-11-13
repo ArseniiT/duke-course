@@ -2,6 +2,7 @@ let canvas1;
 let originalImg = null;
 let tmpImg = null;
 
+
 window.addEventListener('load', ()=>{
   canvas1 = document.querySelector('#canvas1');
 });
@@ -11,10 +12,17 @@ function loadForegroundImage() {
   originalImg = new SimpleImage(imgFile);
   tmpImg = new SimpleImage(imgFile);
   originalImg.drawTo(canvas1);
+
+  
 }
 
 function resetImg() {
   loadForegroundImage();
+}
+
+function showImgSize() {
+  let imgSizeBlock = document.getElementById('img-size');
+  imgSizeBlock.innerHTML = originalImg.getWidth() + ' x ' + originalImg.getHeight();
 }
 
 function makeGrey() {
@@ -22,6 +30,8 @@ function makeGrey() {
     alert('Foreground not loaded.');
     return;
   }
+
+  showImgSize();
   
   let output = new SimpleImage(originalImg.getWidth(), originalImg.getHeight());
   for(let pixel of originalImg.values()) {
@@ -34,9 +44,27 @@ function makeGrey() {
     tmpPixel.setBlue(avg);
     output.setPixel(x, y, tmpPixel);
   }
-
   output.drawTo(canvas1);
 }
+
+function makeRed() {
+  if(originalImg == null || !originalImg.complete()) {
+    alert('Foreground not loaded.');
+    return;
+  }
+  
+  let output = new SimpleImage(originalImg.getWidth(), originalImg.getHeight());
+  for(let pixel of originalImg.values()) {
+    let tmpPixel = pixel;
+    let x = tmpPixel.getX();
+    let y = tmpPixel.getY();
+    tmpPixel.setGreen(0);
+    tmpPixel.setBlue(0);
+    output.setPixel(x, y, tmpPixel);
+  }
+  output.drawTo(canvas1);
+}
+
 
 function makeRainbow() {
   if(originalImg == null || !originalImg.complete()) {
@@ -78,27 +106,35 @@ function makeRainbow() {
       tmpPixel.setBlue(avg);
     }
     output.setPixel(x, y, tmpPixel);
-
   }
-
   output.drawTo(canvas1);
 }
 
-function makeRed() {
+let rad = 2;
+function makeBlur() {
   if(originalImg == null || !originalImg.complete()) {
     alert('Foreground not loaded.');
     return;
   }
-  
+  rad++;
   let output = new SimpleImage(originalImg.getWidth(), originalImg.getHeight());
+  let r,g,b;
   for(let pixel of originalImg.values()) {
     let tmpPixel = pixel;
     let x = tmpPixel.getX();
     let y = tmpPixel.getY();
-    tmpPixel.setGreen(0);
-    tmpPixel.setBlue(0);
+
+    if(x%rad == 0) {
+      r = tmpPixel.getRed();
+      g = tmpPixel.getGreen();
+      b = tmpPixel.getBlue();
+  
+    }
+    tmpPixel.setRed(r)
+    tmpPixel.setGreen(g)
+    tmpPixel.setBlue(b)
+//    console.log(x + ' x ' + y)    
     output.setPixel(x, y, tmpPixel);
   }
-
   output.drawTo(canvas1);
 }
