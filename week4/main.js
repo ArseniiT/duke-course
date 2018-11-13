@@ -36,3 +36,22 @@ function makeGrey() {
 
   output.drawTo(canvas1);
 }
+
+function makeRed() {
+  if(originalImg == null || !originalImg.complete()) {
+    alert('Foreground not loaded.');
+    return;
+  }
+  
+  let output = new SimpleImage(originalImg.getWidth(), originalImg.getHeight());
+  for(let pixel of originalImg.values()) {
+    let tmpPixel = pixel;
+    let x = tmpPixel.getX();
+    let y = tmpPixel.getY();
+    tmpPixel.setGreen(0);
+    tmpPixel.setBlue(0);
+    output.setPixel(x, y, tmpPixel);
+  }
+
+  output.drawTo(canvas1);
+}
