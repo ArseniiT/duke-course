@@ -133,8 +133,54 @@ function makeBlur() {
     tmpPixel.setRed(r)
     tmpPixel.setGreen(g)
     tmpPixel.setBlue(b)
-//    console.log(x + ' x ' + y)    
     output.setPixel(x, y, tmpPixel);
+  }
+  output.drawTo(canvas1);
+}
+
+function makeRed2() {
+  if(originalImg == null || !originalImg.complete()) {
+    alert('Foreground not loaded.');
+    return;
+  }
+  let output = new SimpleImage(originalImg.getWidth(), originalImg.getHeight());
+  let r,g,b,x,y;
+  for(let pixel of originalImg.values()) {
+    let tmpPixel = pixel;
+    x = tmpPixel.getX();
+    y = tmpPixel.getY();
+    r = tmpPixel.getRed();
+    g = tmpPixel.getGreen();
+    b = tmpPixel.getBlue();
+    let avg = (r + g + b) / 3;
+    if(avg < 128 ) {
+      r = tmpPixel.setRed(r*2);
+      g = tmpPixel.setGreen(0);
+      b = tmpPixel.setBlue(0);
+    } else {
+      r = tmpPixel.setRed(255);
+      g = tmpPixel.setGreen(avg*2-255);
+      b = tmpPixel.setBlue(avg*2-255);
+    }
+    output.setPixel(x, y, tmpPixel);
+  }
+  output.drawTo(canvas1);
+}
+
+function myFilter() {
+  if(originalImg == null || !originalImg.complete()) {
+    alert('Foreground not loaded.');
+    return;
+  }
+  let x,y;
+  let w = originalImg.getWidth();
+  let h = originalImg.getHeight();
+  let output = new SimpleImage(w, h);
+
+  for(let tmpPixel of originalImg.values()) {
+    x = tmpPixel.getX()+1;
+    y = tmpPixel.getY()+1;
+    output.setPixel(w-x, h-y, tmpPixel);
   }
   output.drawTo(canvas1);
 }
