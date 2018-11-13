@@ -1,12 +1,5 @@
 * {margin: 0; padding: 0;}
-body {
-  background-color: #f2edf5;
-}
 
-.container {
-  margin: 0 auto;
-  width: 80%;
-}
 
 .canvas {
   height: 150px;
